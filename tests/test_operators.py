@@ -22,7 +22,11 @@ from minitorch.operators import (
     inv,
     log_back,
     inv_back,
-    relu_back
+    relu_back,
+    negList,
+    addLists,
+    sum,
+    prod
 )
 
 from .strategies import assert_close, small_floats
@@ -191,7 +195,19 @@ def test_sum_distribute(ls1: List[float], ls2: List[float]) -> None:
     is the same as the sum of each element of `ls1` plus each element of `ls2`.
     """
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError("Need to implement for Task 0.3")
+
+    assert_close(add(sum(ls1), sum(ls2)), sum(addLists(ls1, ls2)))
+    # x1 = sum(ls1)
+    # x2 = sum(ls2)
+    # y1 = 0
+    # y2 = 0
+    # for i in range(len(ls1)):
+    #     y1 = y1 + ls1[i]
+    # for i in range(len(ls2)):
+    #     y2 = y2 + ls2[i]
+    # assert x1 == y1
+    # assert x2 == y2
+    # raise NotImplementedError("Need to implement for Task 0.3")
 
 
 @pytest.mark.task0_3
